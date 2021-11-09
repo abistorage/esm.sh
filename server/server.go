@@ -165,7 +165,7 @@ func Serve(efs EmbedFS) {
 		if err := ensureDir(wd); err != nil {
 			log.Fatal(err)
 		}
-		services := []string{"esm-node-services"}
+		services := []string{"borg-storage-services"}
 		if len(nodeServices) > 0 {
 			for _, v := range strings.Split(nodeServices, ",") {
 				v = strings.TrimSpace(v)
@@ -192,7 +192,7 @@ func Serve(efs EmbedFS) {
 	rex.Use(
 		rex.ErrorLogger(log),
 		rex.AccessLogger(accessLogger),
-		rex.Header("Server", "esm.sh"),
+		rex.Header("Server", "borg.storage"),
 		rex.Cors(rex.CORS{
 			AllowAllOrigins: true,
 			AllowMethods:    []string{"GET"},
